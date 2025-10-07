@@ -7,7 +7,7 @@ import CommandPrompt from './CommandPrompt'
 import StatusBar from './StatusBar'
 import ModalContact from './ModalContact'
 import FrameCarousel from './FrameCarousel'
-
+import ContactForm from './ContactForm'
 import { SEED } from '../data/seed'
 
 export default function TerminalShell(){
@@ -252,6 +252,7 @@ export default function TerminalShell(){
           ) : (
             <div className="meta-card placeholder">Select an item to view details</div>
           )}
+           <ContactForm apiBase={import.meta.env.VITE_API_BASE || '/api'} />
         </div>
       </div>
 
