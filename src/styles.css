@@ -1,0 +1,373 @@
+/* src/styles.css - updated: no page scroll, larger name/roles and theme buttons, dark default applied via index.html */
+
+:root{
+  --bg:#050505;
+  --panel:#0b0f12;
+  --accent:#9bdcff;
+  --muted:#9aa6b2;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  --base-font-size:16px;
+  --line-height:1.55;
+}
+
+/* theme palettes (switched by data-theme on <html>) */
+:root[data-theme='night']{
+  --bg: linear-gradient(180deg,#050607,#081017);
+  --panel: #071018;
+  --accent: #9bdcff;
+  --muted: #9aa6b2;
+}
+:root[data-theme='dark']{
+  --bg: linear-gradient(180deg,#000,#050505);
+  --panel: #050505;
+  --accent: #cbd5ff;
+  --muted: #9aa6b2;
+}
+:root[data-theme='light']{
+  --bg: linear-gradient(180deg,#f8f7f3,#f0efea);
+  --panel: #ffffff;
+  --accent: #0b3140;
+  --muted: #4b5563;
+}
+
+/* Prevent any page scrolling: hide overflow on root and body.
+   The app will fill the viewport; all content must fit, or you will paginate sections later. */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* <-- prevents page scrolling */
+}
+
+/* root formatting */
+*{box-sizing:border-box}
+body{
+  background:var(--bg);
+  font-family:var(--mono);
+  color:var(--accent);
+  -webkit-font-smoothing:antialiased;
+  font-size:var(--base-font-size);
+  line-height:var(--line-height);
+}
+
+/* shell fills viewport */
+.shell{
+  width:100vw;
+  height:100vh;
+  margin:0;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  background:transparent;
+}
+
+/* inner frame - make it fill available space and hide internal overflow so page doesn't scroll */
+.shell > .inner-frame{
+  flex:1;
+  border:2px solid rgba(255,255,255,0.06);
+  border-radius:8px;
+  padding:18px;
+  background:var(--panel);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow: hidden; /* important: prevents inner content from causing page scroll */
+}
+
+/* avatar: far right */
+.avatar{
+  position:absolute;
+  right:18px;
+  top:18px;
+  width:96px;      /* increased size for better visibility */
+  height:96px;
+  border-radius:50%;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  z-index:30;
+}
+.avatar img{width:100%;height:100%;object-fit:cover}
+
+/* header layout - leave room on the right for avatar */
+.top-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  position:relative;
+  padding-right:140px; /* enough room for avatar (>= 96px) + buttons */
+}
+
+/* make the name larger and roles more legible */
+.title-block{display:flex;flex-direction:column}
+.ascii-logo{
+  font-weight:800;
+  letter-spacing:1px;
+  font-size:35px;   /* increased name size */
+  color:var(--accent);
+  margin-bottom:6px;
+}
+.roles{
+  color:var(--muted);
+  font-size:25px;   /* increased roles size */
+  letter-spacing:0.6px;
+}
+
+/* header-right positioned left of avatar (absolute) */
+.header-right{
+  position:absolute;
+  right:118px; /* avatar right 18px + avatar width ~96 => left edge ~18 + 96 = 114; tuned a bit */
+  top:18px;
+  z-index:25;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* theme buttons: larger and clearer */
+.theme-toggle{display:flex;gap:8px}
+.theme-toggle .tm{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.08);
+  padding:8px 10px;   /* bigger padding */
+  border-radius:8px;
+  cursor:pointer;
+  color:var(--muted);
+  font-size:13px;     /* larger label */
+  min-width:56px;     /* ensures even size */
+  text-align:center;
+}
+.theme-toggle .tm:hover{background:rgba(255,255,255,0.02)}
+.theme-toggle .tm.active{background:rgba(255,255,255,0.03);color:var(--accent)}
+
+/* tabs right under header */
+.tabs{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.tab{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  padding:8px 12px;
+  border-radius:8px;
+  color:var(--muted);
+  cursor:pointer;
+  font-size:18px;
+}
+.tab.active{background:rgba(255,255,255,0.05);color:var(--accent)}
+
+/* main area - use flexed inner containers that will not cause page scroll */
+.terminal-grid{
+  display:grid;
+  grid-template-columns:1fr 380px;
+  gap:18px;
+  margin-top:14px;
+  flex:1;
+  min-height:0; /* important for preventing child overflow to root */
+}
+.left{
+  background:transparent;
+  padding:6px;
+  border-radius:6px;
+  color:var(--accent);
+  overflow:auto;        /* allow internal scroll inside left column if you prefer, but page won't scroll */
+  max-height: calc(100vh - 260px); /* optional cap if you want visual constraint */
+}
+.right{
+  background:transparent;
+  padding:6px;
+  border-radius:6px;
+  color:var(--muted);
+  overflow:auto;        /* vertical scrolling inside right column only */
+  max-height: calc(100vh - 260px);
+}
+
+/* welcome block */
+.welcome-only{
+  padding:28px;
+  border-radius:6px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.02);
+}
+.welcome-text{font-size:18px;color:var(--accent);margin-bottom:8px}
+.welcome-sub{color:var(--muted);font-size:19px}
+
+/* list and article styling */
+.list-table{width:100%;border-collapse:collapse;font-size:19px}
+.list-table th{color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.list-table td{padding:10px;border-bottom:1px dashed rgba(255,255,255,0.03)}
+.list-table tr:hover{background:rgba(255,255,255,0.02);cursor:pointer}
+.title-col{font-weight:600;color:var(--accent)}
+
+.article-view h3{margin:0 0 8px 0;color:var(--accent);font-size:21px}
+.article-body{white-space:pre-wrap;color:var(--muted);font-size:20px}
+
+.article-image-wrap{margin-top:14px;display:flex;justify-content:center}
+.article-image{max-width:100%;height:auto;border-radius:6px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+.type-ghost{color:var(--muted);margin-left:6px}
+
+/* prompt symbol */
+.prompt{
+  color:var(--muted);
+  font-size:25px;        /* larger dollar sign */
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  padding-right:10px;
+}
+
+/* command input: use native caret, visible when focused/has content */
+.command{
+  flex:1;
+  background:transparent;
+  border:0;
+  outline:none;
+  color:var(--accent);
+  font-family:var(--mono);
+  font-size:25px;
+  line-height:1.4;
+  caret-color:var(--accent); /* native caret color */
+  padding:6px 8px;
+}
+
+/* if you previously had a fake caret using ::after, remove those rules.
+   The native caret will blink and behave normally. */
+
+/* FrameCarousel buttons: bigger and touch friendly */
+.frame-btn{
+  padding:10px 16px;
+  font-size:20px;
+  border-radius:8px;
+  border:0;
+  background:rgba(255,255,255,0.06);
+  color:var(--accent);
+  cursor:pointer;
+}
+.frame-btn:hover{background:rgba(255,255,255,0.09)}
+.frame-btn:disabled{opacity:0.4;cursor:not-allowed}
+
+/* slightly larger frame-counter and controls spacing */
+.frame-controls{display:flex;align-items:center;gap:12px}
+.frame-counter{color:var(--muted);font-size:19px}
+
+/* run button small style */
+.run-btn.small{
+  width:40px;
+  height:36px;
+  padding:6px;
+  font-size:19px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* bottom area: prompt + statusbar anchored at bottom of the inner frame
+   we keep prompt and status inside a container; page still won't scroll */
+.bottom-area{
+  margin-top:12px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+/* prompt area */
+/* single consistent caret: fake solid caret next to the $ prompt; hide native caret */
+.cmdline{display:flex;align-items:center;gap:10px;margin-top:14px}
+/* .prompt{color:var(--muted);position:relative;padding-right:8px}
+.prompt::after{
+  content:'';
+  display:inline-block;
+  width:10px;
+  height:1.05em;
+  background:var(--accent);
+  margin-left:6px;
+  border-radius:2px;
+  animation:promptBlink 1s steps(1) infinite;
+} */
+@keyframes promptBlink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
+
+
+/* run button - small translucent */
+/* .run-btn{
+  border:1px solid rgba(255,255,255,0.06);
+  background:transparent;
+  padding:6px 8px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:18px;
+  height:34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.run-btn.small{width:36px;min-width:36px;height:34px;padding:4px;font-size:13px;opacity:0.95} */
+
+/* statusbar below prompt */
+.statusbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:6px;
+  padding:8px 12px;
+  border-top:1px solid rgba(255,255,255,0.04);
+  color:var(--muted);
+  font-size:19px;
+  background:transparent;
+}
+
+/* modal and inputs remain same */
+.modal-backdrop{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6)}
+.modal{background:var(--panel);padding:16px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);width:420px}
+.modal form label{display:block;margin-bottom:8px;color:var(--muted)}
+.modal input,.modal textarea{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--accent);font-family:var(--mono)}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+
+/* responsive adjustments */
+@media (max-width:980px){
+  .terminal-grid{grid-template-columns:1fr}
+  .right{order:2}
+  .header-right{position:static;margin-top:10px;padding-left:8px}
+  .avatar{right:12px;top:12px;width:72px;height:72px}
+}
+
+/* helper */
+code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:var(--accent)}
+
+/* FrameCarousel styles */
+.frame-carousel{
+  border:1px solid rgba(255,255,255,0.04);
+  border-radius:8px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  height:420px; /* adjust if you want taller/shorter frames */
+  background:rgba(255,255,255,0.01);
+}
+.frame-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  background:transparent;
+}
+.frame-title{font-weight:700;color:var(--accent)}
+.frame-controls{display:flex;align-items:center;gap:8px}
+
+/* the scrollable frame body */
+.frame-body{
+  overflow:auto; /* scroll inside frame only */
+  padding:12px;
+  flex:1;
+}
+
+/* frame content */
+.frame-meta{color:var(--muted);font-size:18px;margin-bottom:8px}
+.frame-text{white-space:pre-wrap;color:var(--accent);font-size:19px}
+.frame-image-wrap{margin-top:12px}
+.frame-image{max-width:100%;height:auto;border-radius:6px;border:1px solid rgba(255,255,255,0.04)}
+.frame-empty{padding:20px;color:var(--muted)}
