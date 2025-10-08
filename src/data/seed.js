@@ -82,7 +82,7 @@ export const SEED = {
     {
       title: 'Skills Diagram',
       body: '',
-      image: '/skills.png'   // your diagram image, ensure it exists with exact filename in public/
+      image: './skills.png'   // your diagram image, ensure it exists with exact filename in public/
     }
   ],
 
@@ -99,3 +99,4 @@ export const SEED = {
     { title: 'Understanding Containerization', date: '24th June 2024', category: 'Containers', excerpt: 'Docker and Kubernetes explained' }
   ]
 }
+
