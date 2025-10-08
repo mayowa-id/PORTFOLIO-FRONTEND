@@ -338,9 +338,9 @@ textarea:-moz-placeholder {
 .contact-form label {
   display:block;
   margin-bottom:8px;
-  font-size:15px;
+  font-size:12px;
 }
-.contact-form .label { color:var(--muted); display:block; margin-bottom:6px; font-size:13px; }
+.-form .label { color:var(--muted); display:block; margin-bottom:6px; font-size:13px; }
 
 /* FrameCarousel and content blocks */
 .frame-carousel{
@@ -384,7 +384,7 @@ textarea:-moz-placeholder {
   box-shadow: 0 6px 16px rgba(0,0,0,0.5);
 }
 
-.contact-title{ font-size:20px; color:var(--accent); margin:0 0 6px 0; font-weight:700; }
+.contact-title{ font-size:14px; color:var(--accent); margin:0 0 6px 0; font-weight:700; }
 .contact-actions{ display:flex; gap:10px; align-items:center; margin-top:8px; }
 .sent-ok{ color: #7EE787; font-size:14px; }
 .sent-err{ color: #FF7A7A; font-size:14px; }
@@ -407,5 +407,6 @@ textarea:-moz-placeholder {
 
 /* helper */
 code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:var(--accent)}
+
 
 
