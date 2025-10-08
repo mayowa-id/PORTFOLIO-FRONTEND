@@ -7,7 +7,6 @@ const TABS = [
   {key:'experience', label:'Experience'},
   {key:'skills', label:'Skills'},
   {key:'certifications', label:'Certifications'},
-  {key:'contacts', label:'Contacts'}
 ]
 
 export default function TabsBar({section, onChange}){
@@ -19,3 +18,4 @@ export default function TabsBar({section, onChange}){
     </nav>
   )
 }
+
