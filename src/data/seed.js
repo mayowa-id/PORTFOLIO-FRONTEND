@@ -45,34 +45,34 @@ export const SEED = {
   ],
 
   skills: [
-    {
-      title: 'Programming languages',
-      body: 'Java\nJavaScript\nPython'
-    },
-    {
-      title: 'Backend',
-      body: 'Spring Boot\nNode.js\nExpress.js\nVert.x'
-    },
-    {
-      title: 'Frontend',
-      body: 'HTML\nCSS\nReact.js'
-    },
-    {
-      title: 'Databases',
-      body: 'MySQL\nPostgreSQL\nMongoDB\nRedis'
-    },
-    {
-      title: 'Cloud & DevOps',
-      body: 'AWS\nDocker\nGitHub Actions'
-    },
-    {
-      title: 'Messaging & Security',
-      body: 'Redis Pub/Sub\nRabbitMQ\nKafka\n\nSecurity: OAuth2, JWT, Spring Security'
-    },
+    // {
+    //   title: 'Programming languages',
+    //   body: 'Java\nJavaScript\nPython'
+    // },
+    // {
+    //   title: 'Backend',
+    //   body: 'Spring Boot\nNode.js\nExpress.js\nVert.x'
+    // },
+    // {
+    //   title: 'Frontend',
+    //   body: 'HTML\nCSS\nReact.js'
+    // },
+    // {
+    //   title: 'Databases',
+    //   body: 'MySQL\nPostgreSQL\nMongoDB\nRedis'
+    // },
+    // {
+    //   title: 'Cloud & DevOps',
+    //   body: 'AWS\nDocker\nGitHub Actions'
+    // },
+    // {
+    //   title: 'Messaging & Security',
+    //   body: 'Redis Pub/Sub\nRabbitMQ\nKafka\n\nSecurity: OAuth2, JWT, Spring Security'
+    // },
     {
       title: 'Skills Diagram',
       body: '',
-      image: './skills.png'   // your diagram image, ensure it exists with exact filename in public/
+      image: './skill.png'  
     }
   ],
 
@@ -89,6 +89,7 @@ export const SEED = {
     { title: 'Understanding Containerization', date: '24th June 2024', category: 'Containers', excerpt: 'Docker and Kubernetes explained' }
   ]
 }
+
 
 
 
