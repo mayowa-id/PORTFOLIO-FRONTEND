@@ -234,24 +234,6 @@ export default function TerminalShell(){
         </div>
 
         <div className="right">
-          {selected ? (
-            (selected.item.description || selected.item.excerpt) ? (
-              <ArticleView title={selected.item.title || selected.item.name} body={selected.item.description || selected.item.excerpt} />
-            ) : (
-              <div className="meta-card">
-                <h4>{selected.item.title || selected.item.name}</h4>
-                <pre className="meta-pre">{selected.item.meta || (selected.item.tech && selected.item.tech.join(', ')) || selected.item.date}</pre>
-                <div className="meta-body">{selected.item.description || selected.item.excerpt}</div>
-                {selected.item.github && (
-                  <div style={{marginTop:10}}>
-                    <a href={selected.item.github} target="_blank" rel="noopener noreferrer">View repo</a>
-                  </div>
-                )}
-              </div>
-            )
-          ) : (
-            <div className="meta-card placeholder">Select an item to view details</div>
-          )}
            <ContactForm apiBase={import.meta.env.VITE_API_BASE || '/api'} />
         </div>
       </div>
@@ -263,3 +245,4 @@ export default function TerminalShell(){
     </div>
   )
 }
+
