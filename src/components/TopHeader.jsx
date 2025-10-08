@@ -1,4 +1,3 @@
-// src/components/TopHeader.jsx
 import React, { useEffect } from 'react'
 
 export default function TopHeader({ profile = {} , theme = 'night' }){
@@ -6,7 +5,6 @@ export default function TopHeader({ profile = {} , theme = 'night' }){
   const roles = profile.roles || ['SOFTWARE ENGINEER', 'BACKEND DEVELOPER', 'FRONTEND DEVELOPER']
 
   useEffect(() => {
-    // on mount ensure theme from localStorage is applied if present
     const saved = localStorage.getItem('theme')
     if (saved) document.documentElement.setAttribute('data-theme', saved)
     else document.documentElement.setAttribute('data-theme', theme)
@@ -34,3 +32,4 @@ export default function TopHeader({ profile = {} , theme = 'night' }){
     </header>
   )
 }
+
