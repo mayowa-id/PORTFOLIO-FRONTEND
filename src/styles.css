@@ -186,6 +186,7 @@ body{
   flex-direction:column;
   gap:8px;
   align-items:stretch;
+  margin-bottom: 5px; 
 }
 
 /* welcome block */
@@ -407,6 +408,7 @@ textarea:-moz-placeholder {
 
 /* helper */
 code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:var(--accent)}
+
 
 
 
