@@ -41,7 +41,7 @@ export const SEED = {
       title: 'Health Reminder',
       description: 'Smart Daily Task Reminder is a Java Spring Boot application that helps users schedule and receive automated reminders for essential daily activities like drinking water and stretching. Users can configure reminders based on their preferences and receive notifications via Email, Telegram, and WhatsApp (Twilio).',
       image: './smart-reminder.png',
-      github: ''
+      github: 'https://github.com/mayowa-id/smart-daily-task-reminder'
     }
   ],
 
@@ -90,5 +90,6 @@ export const SEED = {
     { title: 'Understanding Containerization', date: '24th June 2024', category: 'Containers', excerpt: 'Docker and Kubernetes explained' }
   ]
 }
+
 
 
