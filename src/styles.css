@@ -5,7 +5,9 @@
   --accent:#9bdcff;
   --muted:#9aa6b2;
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
-  --base-font-size:13px;
+
+  /* BASE FONT SIZE: made smaller (approx 25% reduction from 16px baseline -> 12px) */
+  --base-font-size: 12px;
   --line-height:1.55;
 }
 
@@ -29,16 +31,15 @@
   --muted: #4b5563;
 }
 
-/* Prevent any page scrolling: hide overflow on root and body.
-   The app will fill the viewport; all content must fit, or you will paginate sections later. */
+/* Prevent page scrolling */
 html, body {
   height: 100%;
   margin: 0;
-  overflow: hidden; /* <-- prevents page scrolling */
+  overflow: hidden;
 }
 
 /* root formatting */
-*, *::before, *::after { box-sizing: border-box; } /* enforce box-sizing everywhere */
+*, *::before, *::after { box-sizing: border-box; }
 body{
   background:var(--bg);
   font-family:var(--mono);
@@ -62,8 +63,7 @@ body{
   background:transparent;
 }
 
-/* inner frame - make it fill available space and hide internal overflow so page doesn't scroll
-   make it a strict column so footer/status can be pushed to bottom */
+/* inner frame */
 .shell > .inner-frame{
   flex:1;
   border:2px solid rgba(255,255,255,0.06);
@@ -73,18 +73,18 @@ body{
   display:flex;
   flex-direction:column;
   position:relative;
-  overflow: hidden; /* important: prevents inner content from causing page scroll */
+  overflow: hidden;
 }
 
-/* avatar: far right; constrained size to avoid huge image in prod */
+/* avatar: constrained and slightly smaller */
 .avatar{
   position:absolute;
   right:18px;
   top:18px;
-  width:80px;      /* smaller default for prod */
-  height:80px;
-  max-width: 96px; /* hard cap */
-  max-height: 96px;
+  width:72px;
+  height:72px;
+  max-width:88px;
+  max-height:88px;
   border-radius:50%;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.08);
@@ -92,85 +92,86 @@ body{
 }
 .avatar img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* header layout - leave room on the right for avatar */
+/* header */
 .top-header{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
   gap:12px;
   position:relative;
-  padding-right:140px; /* enough room for avatar (>= 96px) + buttons */
+  padding-right:120px; /* adjusted for smaller avatar size */
 }
 
-/* make the name larger and roles more legible */
+/* sizes reduced proportionally */
 .title-block{display:flex;flex-direction:column}
 .ascii-logo{
   font-weight:800;
   letter-spacing:1px;
-  font-size:27px;
+  font-size:20px;   /* reduced from 27 */
   color:var(--accent);
   margin-bottom:6px;
 }
 .roles{
   color:var(--muted);
-  font-size:18px;
-  letter-spacing:0.6px;
+  font-size:14px;   /* reduced from 18 */
+  letter-spacing:0.5px;
 }
 
-/* header-right positioned left of avatar (absolute) */
+/* header-right */
 .header-right{
   position:absolute;
-  right:118px;
+  right:110px;
   top:18px;
   z-index:25;
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:8px;
 }
 
 .theme-toggle{display:flex;gap:8px}
 .theme-toggle .tm{
   background:transparent;
   border:1px solid rgba(255,255,255,0.08);
-  padding:8px 10px;
+  padding:6px 8px;
   border-radius:8px;
   cursor:pointer;
   color:var(--muted);
-  font-size:9px;
-  min-width:56px;
+  font-size:11px;
+  min-width:48px;
   text-align:center;
 }
 .theme-toggle .tm:hover{background:rgba(255,255,255,0.02)}
 .theme-toggle .tm.active{background:rgba(255,255,255,0.03);color:var(--accent)}
 
-.tabs{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+/* tabs */
+.tabs{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
 .tab{
   background:transparent;
   border:1px solid rgba(255,255,255,0.06);
-  padding:8px 12px;
+  padding:6px 10px;
   border-radius:8px;
   color:var(--muted);
   cursor:pointer;
-  font-size:12px;
+  font-size:11px;
 }
 .tab.active{background:rgba(255,255,255,0.05);color:var(--accent)}
 
 .terminal-grid{
   display:grid;
-  grid-template-columns:1fr 380px;
-  gap:18px;
-  margin-top:14px;
+  grid-template-columns:1fr 360px; /* slightly narrower right column */
+  gap:14px;
+  margin-top:12px;
   flex:1;
-  min-height:0; /* important for preventing child overflow to root */
+  min-height:0;
 }
 
-/* left/right columns */
+/* left & right columns */
 .left{
   background:transparent;
   padding:6px;
   border-radius:6px;
   color:var(--accent);
-  overflow:auto;        /* allow internal scroll inside left column */
+  overflow:auto;
   min-height:0;
   max-height: calc(100vh - 260px);
 }
@@ -179,7 +180,7 @@ body{
   padding:6px;
   border-radius:6px;
   color:var(--muted);
-  overflow:auto;        /* vertical scrolling inside right column only */
+  overflow:auto;        /* keep overall right column scroll if page needs it */
   min-height:0;
   max-height: calc(100vh - 260px);
   display:flex;
@@ -188,41 +189,38 @@ body{
   align-items:stretch;
 }
 
-/* welcome block */
+/* welcome */
 .welcome-only{
-  padding:28px;
+  padding:20px;
   border-radius:6px;
   background:rgba(255,255,255,0.02);
   border:1px solid rgba(255,255,255,0.02);
 }
-.welcome-text{font-size:15px;color:var(--accent);margin-bottom:8px}
-.welcome-sub{color:var(--muted);font-size:19px}
+.welcome-text{font-size:13px;color:var(--accent);margin-bottom:6px}
+.welcome-sub{color:var(--muted);font-size:13px}
 
-/* list and article styling */
-.list-table{width:100%;border-collapse:collapse;font-size:19px}
-.list-table th{color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid rgba(255,255,255,0.06)}
-.list-table td{padding:10px;border-bottom:1px dashed rgba(255,255,255,0.03)}
-.list-table tr:hover{background:rgba(255,255,255,0.02);cursor:pointer}
+/* lists and articles (smaller text) */
+.list-table{width:100%;border-collapse:collapse;font-size:13px}
+.list-table th{color:var(--muted);text-align:left;padding:6px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.list-table td{padding:8px;border-bottom:1px dashed rgba(255,255,255,0.03)}
 .title-col{font-weight:600;color:var(--accent)}
 
-.article-view h3{margin:0 0 8px 0;color:var(--accent);font-size:17px}
-.article-body{white-space:pre-wrap;color:var(--muted);font-size:16px}
+.article-view h3{margin:0 0 8px 0;color:var(--accent);font-size:14px}
+.article-body{white-space:pre-wrap;color:var(--muted);font-size:13px}
 
-.article-image-wrap{margin-top:14px;display:flex;justify-content:center}
+.article-image-wrap{margin-top:12px;display:flex;justify-content:center}
 .article-image{max-width:100%;height:auto;border-radius:6px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 18px rgba(0,0,0,0.5)}
 .type-ghost{color:var(--muted);margin-left:6px}
 
-/* prompt symbol */
+/* prompt symbol & command input */
 .prompt{
   color:var(--muted);
-  font-size:25px;
+  font-size:19px;   /* reduced */
   font-weight:700;
   display:inline-flex;
   align-items:center;
-  padding-right:10px;
+  padding-right:8px;
 }
-
-/* command input: use native caret, visible when focused/has content */
 .command{
   flex:1;
   background:transparent;
@@ -230,16 +228,16 @@ body{
   outline:none;
   color:var(--accent);
   font-family:var(--mono);
-  font-size:17px;
+  font-size:13px;   /* reduced */
   line-height:1.4;
   caret-color:var(--accent);
   padding:6px 8px;
 }
 
-/* Frame and control buttons */
+/* frame buttons smaller */
 .frame-btn{
-  padding:10px 16px;
-  font-size:20px;
+  padding:8px 12px;
+  font-size:16px;
   border-radius:8px;
   border:0;
   background:rgba(255,255,255,0.06);
@@ -249,29 +247,23 @@ body{
 .frame-btn:hover{background:rgba(255,255,255,0.09)}
 .frame-btn:disabled{opacity:0.4;cursor:not-allowed}
 
-.frame-controls{display:flex;align-items:center;gap:12px}
-.frame-counter{color:var(--muted);font-size:19px}
+.frame-controls{display:flex;align-items:center;gap:10px}
+.frame-counter{color:var(--muted);font-size:14px}
+.run-btn.small{width:36px;height:32px;padding:6px;font-size:15px}
 
-.run-btn.small{
-  width:40px;
-  height:36px;
-  padding:6px;
-  font-size:19px;
-}
-
-/* bottom area: keep it at the bottom */
+/* bottom area pinned to bottom */
 .bottom-area{
-  margin-top:auto; /* push this area to bottom of inner-frame */
+  margin-top:auto;
   display:flex;
   flex-direction:column;
   gap:8px;
 }
 
-/* cmdline/prompt area */
-.cmdline{display:flex;align-items:center;gap:10px;margin-top:14px}
+/* cmdline */
+.cmdline{display:flex;align-items:center;gap:10px;margin-top:12px}
 @keyframes promptBlink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
 
-/* statusbar below prompt */
+/* statusbar */
 .statusbar{
   display:flex;
   justify-content:space-between;
@@ -280,19 +272,19 @@ body{
   padding:8px 12px;
   border-top:1px solid rgba(255,255,255,0.04);
   color:var(--muted);
-  font-size:18px;
+  font-size:14px;  /* reduced */
   background:transparent;
 }
+.statusbar .left-section { display:flex; gap:12px; align-items:center; }
+.statusbar .right-section { display:flex; gap:12px; align-items:center; }
 
-/* modal generic */
+/* modal */
 .modal-backdrop{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6)}
-.modal{background:var(--panel);padding:16px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);width:420px}
+.modal{background:var(--panel);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);width:360px}
 .modal form label{display:block;margin-bottom:8px;color:var(--muted)}
 
-/* INPUT / TEXTAREA: make absolutely consistent in prod and dev
-   - enforce block layout, full width, transparent background, remove box-shadow
-   - handle Chrome autofill using vendor selectors
-*/
+/* INPUT / TEXTAREA: make consistent; force transparent background across browsers
+   and avoid inner scrollbar on contact card by sizing textarea reasonably */
 .right .contact-form input,
 .right .contact-form textarea,
 .modal input,
@@ -300,13 +292,13 @@ body{
 input, textarea, select {
   display: block !important;
   width: 100% !important;
-  padding: 8px 10px !important;
+  padding: 6px 8px !important;
   border-radius: 6px !important;
   border: 1px solid rgba(255,255,255,0.04) !important;
   background: transparent !important;
   color: var(--accent) !important;
   font-family: var(--mono) !important;
-  font-size: 16px !important;
+  font-size: 13px !important;
   outline: none !important;
   box-shadow: none !important;
   -webkit-appearance: none !important;
@@ -322,7 +314,7 @@ input, textarea, select {
   color: rgba(167, 177, 187, 0.5) !important;
 }
 
-/* Chrome autofill styling override: force transparent fill and correct text color */
+/* Chrome autofill override */
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 input:-internal-autofill-selected {
@@ -332,81 +324,67 @@ input:-internal-autofill-selected {
   background: transparent !important;
 }
 
-/* For Firefox (sometimes uses special background), force transparent */
-input:-moz-placeholder,
-textarea:-moz-placeholder {
-  background: transparent !important;
-}
-
-/* ensure labels contain their inputs in a stacked layout */
+/* contact form labels */
 .contact-form label {
   display:block;
   margin-bottom:8px;
-  font-size:15px;
+  font-size:13px;
 }
-.contact-form .label { color:var(--muted); display:block; margin-bottom:6px; font-size:13px; }
+.contact-form .label { color:var(--muted); display:block; margin-bottom:6px; font-size:12px; }
 
-/* FrameCarousel and content blocks */
+/* FrameCarousel and content blocks - sizes reduced */
 .frame-carousel{
   border:1px solid rgba(255,255,255,0.04);
   border-radius:8px;
   overflow:hidden;
   display:flex;
   flex-direction:column;
-  height:420px;
+  height:380px; /* slightly shorter */
   background:rgba(255,255,255,0.01);
 }
-.frame-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 12px;
-  border-bottom:1px solid rgba(255,255,255,0.03);
-  background:transparent;
-}
-.frame-title{font-weight:700;color:var(--accent)}
-.frame-controls{display:flex;align-items:center;gap:8px}
-.frame-body{overflow:auto;padding:12px;flex:1}
-.frame-meta{color:var(--muted);font-size:14px;margin-bottom:8px}
-.frame-text{white-space:pre-wrap;color:var(--accent);font-size:19px}
-.frame-image-wrap{margin-top:12px}
+.frame-header{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.frame-title{font-weight:700;color:var(--accent);font-size:14px}
+.frame-body{overflow:auto;padding:10px;flex:1}
+.frame-meta{color:var(--muted);font-size:12px;margin-bottom:6px}
+.frame-text{white-space:pre-wrap;color:var(--accent);font-size:13px}
 .frame-image{max-width:100%;height:auto;border-radius:6px;border:1px solid rgba(255,255,255,0.04)}
-.frame-empty{padding:20px;color:var(--muted)}
 
-/* Contact form styles (right column) */
+/* Contact form styles (no inner scrollbar) */
 .contact-card{
   background: rgba(255,255,255,0.01);
   border: 1px solid rgba(255,255,255,0.03);
-  padding: 14px;
+  padding: 12px;
   border-radius: 8px;
   color: var(--muted);
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:8px;
   width:100%;
-  min-height: 220px;
+  min-height: auto;
   box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  overflow: visible; /* important: no inner scroll on the card itself */
 }
 
-.contact-title{ font-size:20px; color:var(--accent); margin:0 0 6px 0; font-weight:700; }
+/* keep textarea constrained to avoid creating inner scroll */
+.contact-form textarea {
+  resize: vertical;
+  max-height: 160px; /* limit growth so the card doesn't need its own scroll */
+  min-height: 80px;
+}
+
+/* actions & messages */
+.contact-title{ font-size:16px; color:var(--accent); margin:0 0 6px 0; font-weight:700; }
 .contact-actions{ display:flex; gap:10px; align-items:center; margin-top:8px; }
-.sent-ok{ color: #7EE787; font-size:14px; }
-.sent-err{ color: #FF7A7A; font-size:14px; }
+.sent-ok{ color: #7EE787; font-size:13px; }
+.sent-err{ color: #FF7A7A; font-size:13px; }
 
-/* sticky option to pin to top */
-.contact-card.sticky { position: sticky; top:18px; }
-
-/* bottom area sticky layout for prompt and statusbar alignment */
-.statusbar .left-section { display:flex; gap:12px; align-items:center; }
-.statusbar .right-section { display:flex; gap:12px; align-items:center; }
-
-/* small screens */
+/* smaller screens */
 @media (max-width:980px){
   .terminal-grid{grid-template-columns:1fr}
   .right{order:2}
-  .header-right{position:static;margin-top:10px;padding-left:8px}
-  .avatar{right:12px;top:12px;width:72px;height:72px;max-width:72px;max-height:72px}
-  .contact-card { min-height: 180px; padding:10px; }
+  .header-right{position:static;margin-top:8px;padding-left:8px}
+  .avatar{right:12px;top:12px;width:64px;height:64px;max-width:72px;max-height:72px}
+  .contact-card { min-height: 160px; padding:10px; }
 }
 
 /* helper */
