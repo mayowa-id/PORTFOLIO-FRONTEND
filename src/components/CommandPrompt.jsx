@@ -1,4 +1,3 @@
-// src/components/CommandPrompt.jsx
 import React, { useEffect, useRef, useState } from 'react'
 
 export default function CommandPrompt({ onCommand }) {
@@ -60,4 +59,5 @@ export default function CommandPrompt({ onCommand }) {
     </div>
   )
 }
+
 
