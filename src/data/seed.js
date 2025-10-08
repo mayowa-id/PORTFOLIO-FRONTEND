@@ -1,4 +1,3 @@
-// src/data/seed.js
 export const SEED = {
   profile: {
     name: 'IDOWU MAYOWA JOSHUA',
@@ -90,6 +89,7 @@ export const SEED = {
     { title: 'Understanding Containerization', date: '24th June 2024', category: 'Containers', excerpt: 'Docker and Kubernetes explained' }
   ]
 }
+
 
 
 
