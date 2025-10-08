@@ -1,4 +1,3 @@
-// src/components/TabsBar.jsx
 import React from 'react'
 
 const TABS = [
@@ -18,4 +17,5 @@ export default function TabsBar({section, onChange}){
     </nav>
   )
 }
+
 
