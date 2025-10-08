@@ -8,10 +8,13 @@ export const SEED = {
 
   experience: [
     {
-      role: 'Backend Developer Intern',
-      company: 'Consulting Firm',
+      role: 'FULL STACK DEVELOPER INTERN',
+      company: 'TIPSONA, LAGOS',
       period: '2024',
-      description: `Worked on transaction monitoring system, CRUD services, and REST API development. Learned about business strategy and project management.`
+      description: ` Worked as a full-stack development intern at a tech startup, building and integrating RESTful APIs, 
+      mplementing authentication and database operations, and developing responsive frontends with React. 
+      Collaborated in an agile team, contributing to the full development cycle from requirements gathering to
+      deployment while maintaining code quality through testing and reviews.`
     },
     {
       role: 'Personal Projects',
@@ -29,28 +32,16 @@ export const SEED = {
 
   projects: [
     {
-      title: 'Reactive E-commerce Backend',
-      description: 'A reactive event-driven e-commerce backend with product catalog, orders, and payments. Built with Java + Vert.x.',
-      image: '/ecommerce-diagram.png',   // put ecommerce-diagram.png in public/
-      github: 'https://github.com/yourusername/reactive-ecommerce'
-    },
-    {
       title: 'Auth Service',
       description: 'Authentication & Authorization service with JWT, OAuth2 logins, and MongoDB integration.',
-      image: '/auth-service.png',
+      image: './auth.png',
       github: 'https://github.com/yourusername/auth-service'
     },
     {
-      title: 'CAPTCHA Research',
-      description: 'Experiments with FunCaptcha and automated solvers in Python.',
-      image: '/captcha-research.png',
-      github: 'https://github.com/yourusername/captcha-research'
-    },
-    {
-      title: 'Chat App',
-      description: 'Scalable chat application with WebSocket, Redis Pub/Sub, and React frontend.',
-      image: '/chat-app.png',
-      github: 'https://github.com/yourusername/vertx-chat-app'
+      title: 'Health Reminder',
+      description: 'Smart Daily Task Reminder is a Java Spring Boot application that helps users schedule and receive automated reminders for essential daily activities like drinking water and stretching. Users can configure reminders based on their preferences and receive notifications via Email, Telegram, and WhatsApp (Twilio).',
+      image: './smart-reminder.png',
+      github: ''
     }
   ],
 
@@ -99,4 +90,5 @@ export const SEED = {
     { title: 'Understanding Containerization', date: '24th June 2024', category: 'Containers', excerpt: 'Docker and Kubernetes explained' }
   ]
 }
+
 
