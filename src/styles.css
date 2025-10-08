@@ -1,3 +1,4 @@
+
 :root{
   --bg:#050505;
   --panel:#0b0f12;
@@ -8,6 +9,7 @@
   --line-height:1.55;
 }
 
+/* theme palettes (switched by data-theme on <html>) */
 :root[data-theme='night']{
   --bg: linear-gradient(180deg,#050607,#081017);
   --panel: #071018;
@@ -27,12 +29,15 @@
   --muted: #4b5563;
 }
 
+/* Prevent any page scrolling: hide overflow on root and body.
+   The app will fill the viewport; all content must fit, or you will paginate sections later. */
 html, body {
   height: 100%;
   margin: 0;
-  overflow: hidden; 
+  overflow: hidden; /* <-- prevents page scrolling */
 }
 
+/* root formatting */
 *{box-sizing:border-box}
 body{
   background:var(--bg);
@@ -43,6 +48,7 @@ body{
   line-height:var(--line-height);
 }
 
+/* shell fills viewport */
 .shell{
   width:100vw;
   height:100vh;
@@ -54,6 +60,7 @@ body{
   background:transparent;
 }
 
+/* inner frame - make it fill available space and hide internal overflow so page doesn't scroll */
 .shell > .inner-frame{
   flex:1;
   border:2px solid rgba(255,255,255,0.06);
@@ -63,9 +70,10 @@ body{
   display:flex;
   flex-direction:column;
   position:relative;
-  overflow: hidden; 
+  overflow: hidden; /* important: prevents inner content from causing page scroll */
 }
 
+/* avatar: far right */
 .avatar{
   position:absolute;
   right:18px;
@@ -79,15 +87,17 @@ body{
 }
 .avatar img{width:100%;height:100%;object-fit:cover}
 
+/* header layout - leave room on the right for avatar */
 .top-header{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
   gap:12px;
   position:relative;
-  padding-right:140px; 
+  padding-right:140px; /* enough room for avatar (>= 96px) + buttons */
 }
 
+/* make the name larger and roles more legible */
 .title-block{display:flex;flex-direction:column}
 .ascii-logo{
   font-weight:800;
@@ -102,9 +112,10 @@ body{
   letter-spacing:0.6px;
 }
 
+/* header-right positioned left of avatar (absolute) */
 .header-right{
   position:absolute;
-  right:118px; 
+  right:118px; /* avatar right 18px + avatar width ~96 => left edge ~18 + 96 = 114; tuned a bit */
   top:18px;
   z-index:25;
   display:flex;
@@ -153,17 +164,19 @@ body{
   padding:6px;
   border-radius:6px;
   color:var(--accent);
-  overflow:auto;        
-  max-height: calc(100vh - 260px); 
+  overflow:auto;        /* allow internal scroll inside left column if you prefer, but page won't scroll */
+  max-height: calc(100vh - 260px); /* optional cap if you want visual constraint */
+}
 .right{
   background:transparent;
   padding:6px;
   border-radius:6px;
   color:var(--muted);
-  overflow:auto;      
+  overflow:auto;        /* vertical scrolling inside right column only */
   max-height: calc(100vh - 260px);
 }
 
+/* welcome block */
 .welcome-only{
   padding:28px;
   border-radius:6px;
@@ -173,6 +186,7 @@ body{
 .welcome-text{font-size:15px;color:var(--accent);margin-bottom:8px}
 .welcome-sub{color:var(--muted);font-size:19px}
 
+/* list and article styling */
 .list-table{width:100%;border-collapse:collapse;font-size:19px}
 .list-table th{color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid rgba(255,255,255,0.06)}
 .list-table td{padding:10px;border-bottom:1px dashed rgba(255,255,255,0.03)}
@@ -186,15 +200,17 @@ body{
 .article-image{max-width:100%;height:auto;border-radius:6px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 18px rgba(0,0,0,0.5)}
 .type-ghost{color:var(--muted);margin-left:6px}
 
+/* prompt symbol */
 .prompt{
   color:var(--muted);
-  font-size:25px;     
+  font-size:25px;        /* larger dollar sign */
   font-weight:700;
   display:inline-flex;
   align-items:center;
   padding-right:10px;
 }
 
+/* command input: use native caret, visible when focused/has content */
 .command{
   flex:1;
   background:transparent;
@@ -208,6 +224,8 @@ body{
   padding:6px 8px;
 }
 
+/* if you previously had a fake caret using ::after, remove those rules.
+   The native caret will blink and behave normally. */
 
 .frame-btn{
   padding:10px 16px;
@@ -231,6 +249,7 @@ body{
   font-size:19px;
 }
 
+/* bottom area: prompt */
 .bottom-area{
   margin-top:12px;
   display:flex;
@@ -238,6 +257,8 @@ body{
   gap:8px;
 }
 
+/* prompt area */
+/* single consistent caret: fake solid caret next to the $ prompt; hide native caret */
 .cmdline{display:flex;align-items:center;gap:10px;margin-top:14px}
 /* .prompt{color:var(--muted);position:relative;padding-right:8px}
 .prompt::after{
@@ -327,6 +348,7 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
   flex:1;
 }
 
+/* frame content */
 .frame-meta{color:var(--muted);font-size:14px;margin-bottom:8px}
 .frame-text{white-space:pre-wrap;color:var(--accent);font-size:19px}
 .frame-image-wrap{margin-top:12px}
@@ -334,6 +356,7 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
 .frame-empty{padding:20px;color:var(--muted)}
 
 
+/* Contact form styles - add near other .modal/.form rules in src/styles.css */
 .contact-card{
   background: rgba(255,255,255,0.01);
   border: 1px solid rgba(255,255,255,0.03);
