@@ -57,7 +57,7 @@ export default function CommandPrompt({ onCommand }) {
         autoComplete="off"
         autoCorrect="off"
       />
-      <button className="run-btn small" onClick={submit} aria-label="Run command">⏎</button>
     </div>
   )
 }
+
