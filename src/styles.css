@@ -28,13 +28,20 @@
   --muted: #4b5563;
 }
 
-/* Prevent any page scrolling: hide overflow on root and body.
-   The app will fill the viewport; all content must fit, or you will paginate sections later. */
 html, body {
   height: 100%;
   margin: 0;
   overflow: hidden; /* <-- prevents page scrolling */
+  padding: 0;
+  height: 100%;
 }
+
+.scale-wrapper {
+  transform: scale(0.9);
+  transform-origin: top center;
+  width: 111%; /* compensate for the 0.9 scale */
+}
+
 
 /* root formatting */
 *, *::before, *::after { box-sizing: border-box; } /* enforce box-sizing everywhere */
@@ -647,6 +654,7 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
   }
   .lb-image { transition: none; }
 }
+
 
 
 
