@@ -102,7 +102,7 @@ export default function TerminalShell(){
   return (
     <div className="shell" role="main" aria-label="Portfolio terminal">
       <div className="avatar" aria-hidden>
-        <img src={content.profile?.avatar || './profile.jpg'} alt="avatar" />
+        <img src={content.profile?.avatar || '/profile.jpg'} alt="avatar" />
       </div>
 
       <TopHeader profile={content.profile} theme={theme} onChangeTheme={changeTheme} />
@@ -236,3 +236,4 @@ export default function TerminalShell(){
     </div>
   )
 }
+
