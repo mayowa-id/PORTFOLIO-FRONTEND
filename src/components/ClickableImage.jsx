@@ -1,5 +1,5 @@
 import React from 'react'
-import Lightbox from './LightBox'
+import Lightbox from './Lightbox'
 
 export function ClickableImage({ src, alt = '', className = '', caption, fit = 'cover' }) {
   const [open, setOpen] = React.useState(false)
@@ -50,3 +50,4 @@ export function GalleryImageGroup({ images = [], thumbClassName = '' }) {
     </>
   )
 }
+
