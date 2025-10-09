@@ -510,6 +510,146 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
   .lb-next{ right:8px; }
 }
 
+/* Project section overall layout */
+.project-section {
+  max-width: 720px;               /* keeps it compact and centered */
+  margin: 0 auto;                 /* center horizontally */
+  padding: 16px 20px;
+  background: var(--terminal-bg, transparent);
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+/* Title styling */
+.project-section h2 {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+/* Frame wrapper */
+.frame-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+/* Image appearance */
+.frame-image {
+  max-width: 90%;
+  max-height: 400px;              /* limit height */
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover zoom (subtle) */
+.frame-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+/* GitHub link styling */
+.github-link {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  color: #4ea1f3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover {
+  color: #82c4ff;
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 768px) {
+  .project-section {
+    max-width: 95%;
+    padding: 12px;
+  }
+
+  .frame-image {
+    max-width: 100%;
+    max-height: 260px;
+  }
+
+  .project-section h2 {
+    font-size: 1.1rem;
+  }
+}
+.project-section p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.lb-inner{
+  position:relative;
+  max-width: min(1000px, 78vw);
+  max-height: min(720px, 78vh);
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.45); 
+}
+
+.lb-image-wrap{
+  max-width:100%;
+  max-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.lb-image{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  border-radius:6px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  display:block;
+  transition: transform .18s ease, filter .18s ease, opacity .18s ease;
+  transform-origin: center center;
+}
+
+.lb-image[role="zoomable"]{ cursor: zoom-in; }
+.lb-image.zoomed { cursor: zoom-out; transform: scale(1.02); }
+
+.lb-backdrop{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.68); 
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+  padding: 28px;
+}
+
+@media (max-width: 720px) {
+  .lb-inner {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 60px);
+    padding: 12px;
+    border-radius:8px;
+  }
+  .lb-image { transition: none; }
+}
+
+
+
 
 
 
