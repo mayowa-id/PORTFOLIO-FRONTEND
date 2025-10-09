@@ -2,7 +2,7 @@ export const SEED = {
   profile: {
     name: 'IDOWU MAYOWA JOSHUA',
     roles: ['SOFTWARE ENGINEER', 'BACKEND DEVELOPER', 'FRONTEND DEVELOPER'],
-    avatar: '/avatar.png'
+    avatar: '/profile.jpg'
   },
 
   experience: [
@@ -65,3 +65,4 @@ export const SEED = {
 // ]
 
 // <GalleryImageGroup images={imgs} thumbClassName="frame-image" />
+
