@@ -16,7 +16,7 @@ export default function TerminalShell(){
   const [section, setSection] = useState('about')
   const [selected, setSelected] = useState(null)
   const [showContact, setShowContact] = useState(false)
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark')
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
 
   const content = SEED || {}
 
@@ -236,4 +236,5 @@ export default function TerminalShell(){
     </div>
   )
 }
+
 
