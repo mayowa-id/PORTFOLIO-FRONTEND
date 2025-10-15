@@ -26,6 +26,20 @@ export const SEED = {
   certifications: `- AWS Certified Solutions Architect (2024)\n- Oracle Certified Professional, Java SE 11 Developer`,
 
   projects: [
+{
+  title: 'Inventory Management System',
+  description: `A full-stack inventory management system that automates product restocking and warehouse capacity management for businesses. The application monitors stock levels across multiple warehouses and automatically generates purchase orders when inventory falls below defined thresholds, while respecting warehouse capacity constraints.`,
+  images: [
+    { src: '/projects/inv1.jpg', alt: 'Overview', caption: 'Dashboard' },
+     { src: '/projects/inv2.jpg', alt: 'Overview', caption: 'Dashboard' },
+     { src: '/projects/inv3.jpg', alt: 'Overview', caption: 'Dashboard' },
+    { src: '/projects/inv4.jpg', alt: 'Diagram', caption: 'Dashboard' },
+   { src: '/projects/inv5.jpg', alt: 'Overview', caption: 'Dashboard' }
+  ],
+  github: 'https://github.com/yourusername/new-project-repo'
+}
+
+    ,
     {
       title: 'Auth Service',
       description: 'Authentication & Authorization service with JWT, OAuth2 logins, and MongoDB integration.',
@@ -65,6 +79,7 @@ export const SEED = {
 // ]
 
 // <GalleryImageGroup images={imgs} thumbClassName="frame-image" />
+
 
 
 
