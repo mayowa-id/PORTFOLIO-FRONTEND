@@ -318,6 +318,10 @@ input, textarea, select {
   box-sizing: border-box;
 }
 
+.contact-form textarea {
+  max-height: 40px;
+}
+
 /* placeholders */
 .right .contact-form input::placeholder,
 .right .contact-form textarea::placeholder,
