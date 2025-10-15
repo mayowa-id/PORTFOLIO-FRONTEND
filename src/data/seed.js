@@ -34,7 +34,7 @@ export const SEED = {
      { src: '/projects/inv2.jpg', alt: 'Overview', caption: 'Dashboard' },
      { src: '/projects/inv3.jpg', alt: 'Overview', caption: 'Dashboard' },
     { src: '/projects/inv4.jpg', alt: 'Diagram', caption: 'Dashboard' },
-   { src: '/projects/inv5.jpg', alt: 'Overview', caption: 'Dashboard' }
+   { src: '/projects/inv5.png', alt: 'Overview', caption: 'Dashboard' }
   ],
   github: 'https://github.com/yourusername/new-project-repo'
 }
@@ -79,6 +79,7 @@ export const SEED = {
 // ]
 
 // <GalleryImageGroup images={imgs} thumbClassName="frame-image" />
+
 
 
 
