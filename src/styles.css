@@ -240,6 +240,7 @@ body{
   font-family:var(--mono);
   font-size:17px;
   line-height:1.4;
+  max-width: 60%; 
   caret-color:var(--accent);
   padding:6px 8px;
 }
@@ -276,7 +277,7 @@ body{
 }
 
 /* cmdline/prompt area */
-.cmdline{display:flex;align-items:center;gap:10px;margin-top:14px, width: 60%;}
+.cmdline{display:flex;align-items:center;gap:10px;margin-top:14px, max-width: 60%;}
 @keyframes promptBlink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
 
 /* statusbar below prompt */
@@ -658,6 +659,7 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
   }
   .lb-image { transition: none; }
 }
+
 
 
 
