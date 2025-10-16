@@ -276,7 +276,7 @@ body{
 }
 
 /* cmdline/prompt area */
-.cmdline{display:flex;align-items:center;gap:10px;margin-top:14px}
+.cmdline{display:flex;align-items:center;gap:10px;margin-top:14px, width: 60%;}
 @keyframes promptBlink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
 
 /* statusbar below prompt */
@@ -658,6 +658,7 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
   }
   .lb-image { transition: none; }
 }
+
 
 
 
