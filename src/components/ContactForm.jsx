@@ -1,8 +1,7 @@
 import { useState } from 'react'
 
 export default function ContactForm({ apiBase }) {
-  const API = apiBase || (import.meta.env.VITE_API_BASE || '/api')
-
+  const API = 'https://portfolio-backend-kappa-nine.vercel.app'
   const [form, setForm] = useState({ name:'', email:'', phone:'', message:'' })
   const [status, setStatus] = useState('idle') // idle, sending, sent, error
   const [error, setError] = useState(null)
@@ -15,8 +14,9 @@ export default function ContactForm({ apiBase }) {
     e.preventDefault()
     setStatus('sending')
     setError(null)
+
     try {
-      const res = await fetch(`${API}/contact`, {
+      const res = await fetch(`${API}/api/v1/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
@@ -34,28 +34,23 @@ export default function ContactForm({ apiBase }) {
   return (
     <div className="contact-card">
       <h4 className="contact-title">Leave a message</h4>
-
       <form className="contact-form" onSubmit={onSubmit}>
         <label>
           <span className="label">Name</span>
           <input name="name" value={form.name} onChange={onChange} placeholder="Your name" />
         </label>
-
         <label>
           <span className="label">Email *</span>
           <input name="email" value={form.email} onChange={onChange} placeholder="you@example.com" required />
         </label>
-
         <label>
           <span className="label">Phone</span>
           <input name="phone" value={form.phone} onChange={onChange} placeholder="+234-..." />
         </label>
-
         <label>
           <span className="label">Message *</span>
           <textarea name="message" value={form.message} onChange={onChange} rows={6} required placeholder="Hi, I want to..."></textarea>
         </label>
-
         <div className="contact-actions">
           <button type="submit" className="frame-btn" disabled={status==='sending'}>
             {status === 'sending' ? 'Sending…' : 'Send Message'}
