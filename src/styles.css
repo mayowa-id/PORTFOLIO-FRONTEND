@@ -321,6 +321,9 @@ input, textarea, select {
 
 .contact-form textarea {
   max-height: 40px;
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
 }
 
 /* placeholders */
@@ -659,6 +662,7 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
   }
   .lb-image { transition: none; }
 }
+
 
 
 
