@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
 export default function ContactForm({ apiBase }) {
-  const API = 'https://portfolio-backend-kappa-nine.vercel.app/contact'
+  const API = 'https://portfolio-backend-kappa-nine.vercel.app/api/contact'
+
   const [form, setForm] = useState({ name:'', email:'', phone:'', message:'' })
   const [status, setStatus] = useState('idle') 
   const [error, setError] = useState(null)
