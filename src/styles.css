@@ -666,8 +666,6 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
 
 
 
-
-
 /* ============================================
    MOBILE RESPONSIVE OVERRIDES (768px and below)
    ============================================ */
@@ -682,17 +680,24 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
     display: none !important;
   }
 
-  /* Adjust shell for mobile */
+  /* Allow full page scroll */
+  html, body {
+    overflow: auto !important;
+    height: auto;
+  }
+
   .shell {
+    overflow: auto !important;
+    height: auto;
     padding: 12px;
     gap: 8px;
   }
 
-  /* Full screen inner frame */
   .shell > .inner-frame {
-    padding: 12px;
-    overflow: visible;
+    overflow: visible !important;
+    height: auto;
     flex-direction: column;
+    padding: 12px;
   }
 
   /* Header adjustments */
@@ -700,6 +705,17 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
     padding-right: 80px;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* Reduce font sizes for name and roles */
+  .ascii-logo {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .roles {
+    font-size: 12px;
+    letter-spacing: 0.4px;
   }
 
   .avatar {
@@ -737,36 +753,45 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
     font-size: 7px;
   }
 
-  /* Terminal grid - stack vertically */
+  /* Terminal grid - full width, stacked */
   .terminal-grid {
     grid-template-columns: 1fr;
     gap: 12px;
     margin-top: 10px;
-    flex: 1;
+    flex: none;
   }
 
-  /* Left column - scrollable content */
+  /* Left column - full width content */
   .left {
-    overflow-y: auto;
-    max-height: 60vh;
+    overflow: visible;
+    max-height: none;
     padding: 8px;
-    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    margin-bottom: 20px;
   }
 
-  /* Right column - contact form at bottom */
+  /* Right column - contact form below */
   .right {
     order: 2;
     max-height: none;
     overflow: visible;
-    margin-top: auto;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    position: static !important;
   }
 
-  /* Contact card for mobile */
+  /* Contact card for mobile - remove sticky positioning */
   .contact-card {
     width: 100%;
     min-height: auto;
     padding: 12px;
     margin: 0;
+    position: static !important;
+  }
+
+  .contact-card.sticky {
+    position: static !important;
   }
 
   .contact-title {
