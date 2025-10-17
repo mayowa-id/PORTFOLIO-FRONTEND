@@ -17,7 +17,7 @@ export default function ContactForm({ apiBase }) {
     setError(null)
 
     try {
-      const res = await fetch(`${API}/api/v1/contact`, {
+      const res = await fetch(`${API}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
