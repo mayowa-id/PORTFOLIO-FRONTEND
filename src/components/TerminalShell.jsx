@@ -164,29 +164,34 @@ export default function TerminalShell(){
           {section === 'about' && <ArticleView title="About" body={content.about || ''} />}
 
           {/* Skills */}
-                   {section === 'skills' && (
-            skillsIsArray ? (
-              <FrameCarousel
-                frames={content.skills}
-                renderFrame={(frame) => (
-                  <div>
-                    <h4 style={{marginTop:0}}>{frame.title}</h4>
-                    {/* if frame.body exists we type it; if image exists show it after typing */}
-                    {frame.body ? <ArticleView title="" body={frame.body} /> : null}
-                    {frame.image && (
-                      <div className="frame-image-wrap" style={{marginTop:12}}>
-                        <img src={frame.image} alt={frame.title} className="frame-image" onError={(e)=> e.currentTarget.style.display='none'} />
-                      </div>
-                    )}
-                  </div>
-                )}
+ 
+{section === 'skills' && (
+  skillsIsArray ? (
+    <FrameCarousel
+      frames={content.skills}
+      renderFrame={(frame) => (
+        <div>
+          <h4 style={{marginTop:0}}>{frame.title}</h4>
+          {frame.body ? <ArticleView title="" body={frame.body} /> : null}
+          {frame.image && (
+            <div className="frame-image-wrap" style={{marginTop:12}}>
+              <img 
+                src={frame.image} 
+                alt={frame.title} 
+                className="frame-image clickable-thumb"
+                onClick={() => window.dispatchEvent(new CustomEvent('openLightbox', {detail: {src: frame.image, alt: frame.title}}))}
+                onError={(e)=> e.currentTarget.style.display='none'} 
+                style={{cursor: 'pointer'}}
               />
-            ) : (
-              // legacy: single body string and optional skillsImage
-              <ArticleView title="Skills" body={content.skills || ''} imageSrc={content.skillsImage} />
-            )
+            </div>
           )}
-
+        </div>
+      )}
+    />
+  ) : (
+    <ArticleView title="Skills" body={content.skills || ''} imageSrc={content.skillsImage} />
+  )
+)}
 
           {/* Certifications */}
           {section === 'certifications' && (
@@ -237,6 +242,7 @@ export default function TerminalShell(){
     </div>
   )
 }
+
 
 
 
