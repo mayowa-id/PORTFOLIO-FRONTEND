@@ -164,7 +164,7 @@ export default function TerminalShell(){
           {section === 'about' && <ArticleView title="About" body={content.about || ''} />}
 
           {/* Skills */}
-          {section === 'skills' && (
+                   {section === 'skills' && (
             skillsIsArray ? (
               <FrameCarousel
                 frames={content.skills}
@@ -173,12 +173,11 @@ export default function TerminalShell(){
                     <h4 style={{marginTop:0}}>{frame.title}</h4>
                     {/* if frame.body exists we type it; if image exists show it after typing */}
                     {frame.body ? <ArticleView title="" body={frame.body} /> : null}
-{frame.image && (
-  <div className="frame-image-wrap" style={{marginTop:12}}>
-    <ClickableImage src={frame.image} alt={frame.title} caption={frame.title} className="frame-image" fit="contain" />
-  </div>
-)}
-
+                    {frame.image && (
+                      <div className="frame-image-wrap" style={{marginTop:12}}>
+                        <img src={frame.image} alt={frame.title} className="frame-image" onError={(e)=> e.currentTarget.style.display='none'} />
+                      </div>
+                    )}
                   </div>
                 )}
               />
@@ -187,6 +186,7 @@ export default function TerminalShell(){
               <ArticleView title="Skills" body={content.skills || ''} imageSrc={content.skillsImage} />
             )
           )}
+
 
           {/* Certifications */}
           {section === 'certifications' && (
@@ -237,6 +237,7 @@ export default function TerminalShell(){
     </div>
   )
 }
+
 
 
 
