@@ -668,8 +668,247 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
 
 
 
+/* ============================================
+   MOBILE RESPONSIVE OVERRIDES (768px and below)
+   ============================================ */
 
+@media (max-width: 768px) {
+  /* Hide CLI section on mobile */
+  .cmdline,
+  .prompt,
+  .command,
+  .statusbar,
+  .bottom-area {
+    display: none !important;
+  }
 
+  /* Adjust shell for mobile */
+  .shell {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  /* Full screen inner frame */
+  .shell > .inner-frame {
+    padding: 12px;
+    overflow: visible;
+    flex-direction: column;
+  }
+
+  /* Header adjustments */
+  .top-header {
+    padding-right: 80px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    right: 12px;
+    top: 12px;
+  }
+
+  .header-right {
+    position: static;
+    margin-top: 8px;
+    padding-left: 0;
+  }
+
+  .theme-toggle {
+    gap: 6px;
+  }
+
+  .theme-toggle .tm {
+    padding: 6px 8px;
+    font-size: 7px;
+    min-width: 48px;
+  }
+
+  .tabs {
+    margin-top: 10px;
+    gap: 6px;
+  }
+
+  .tab {
+    padding: 6px 10px;
+    font-size: 7px;
+  }
+
+  /* Terminal grid - stack vertically */
+  .terminal-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 10px;
+    flex: 1;
+  }
+
+  /* Left column - scrollable content */
+  .left {
+    overflow-y: auto;
+    max-height: 60vh;
+    padding: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Right column - contact form at bottom */
+  .right {
+    order: 2;
+    max-height: none;
+    overflow: visible;
+    margin-top: auto;
+  }
+
+  /* Contact card for mobile */
+  .contact-card {
+    width: 100%;
+    min-height: auto;
+    padding: 12px;
+    margin: 0;
+  }
+
+  .contact-title {
+    font-size: 12px;
+  }
+
+  /* Form inputs */
+  .contact-form input,
+  .contact-form textarea {
+    padding: 8px 10px !important;
+    font-size: 14px !important;
+  }
+
+  .contact-form textarea {
+    max-height: 100px;
+    min-height: 80px;
+  }
+
+  /* Contact form layout */
+  .contact-form label {
+    margin-bottom: 8px;
+    font-size: 11px;
+  }
+
+  .contact-actions {
+    flex-direction: row;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .frame-btn {
+    padding: 8px 12px;
+    font-size: 9px;
+    flex: 1;
+  }
+
+  /* Table on mobile */
+  .list-table {
+    font-size: 10px;
+  }
+
+  .list-table th,
+  .list-table td {
+    padding: 6px;
+  }
+
+  /* Article view */
+  .article-view h3 {
+    font-size: 11px;
+  }
+
+  .article-body {
+    font-size: 10px;
+  }
+
+  /* Frame carousel */
+  .frame-carousel {
+    height: auto;
+    max-height: 400px;
+  }
+
+  .frame-body {
+    max-height: 300px;
+    padding: 8px;
+  }
+
+  /* Project section */
+  .project-section {
+    max-width: 100%;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .project-section h2 {
+    font-size: 1rem;
+  }
+
+  .project-section p {
+    font-size: 0.85rem;
+  }
+
+  .frame-image {
+    max-width: 100%;
+    max-height: 250px;
+  }
+
+  /* Lightbox adjustments */
+  .lb-backdrop {
+    padding: 12px;
+  }
+
+  .lb-inner {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 60px);
+    padding: 12px;
+  }
+
+  .lb-close {
+    top: 6px;
+    right: 6px;
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+
+  .lb-nav {
+    padding: 8px 10px;
+    font-size: 20px;
+  }
+
+  .lb-prev {
+    left: 8px;
+  }
+
+  .lb-next {
+    right: 8px;
+  }
+}
+
+/* ============================================
+   TABLET ADJUSTMENTS (769px - 1023px)
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .cmdline,
+  .statusbar {
+    display: none;
+  }
+
+  .terminal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .right {
+    order: 2;
+    max-height: none;
+    margin-top: 12px;
+  }
+
+  .contact-card {
+    width: 100%;
+  }
+}
 
 
 
