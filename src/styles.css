@@ -693,13 +693,13 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
     gap: 8px;
   }
 
-  .shell > .inner-frame {
+.shell > .inner-frame {
     overflow: visible !important;
     height: auto;
+    min-height: 100vh;
     flex-direction: column;
     padding: 12px;
   }
-
   /* Header adjustments */
   .top-header {
     padding-right: 80px;
@@ -762,14 +762,14 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
   }
 
   /* Left column - full width content */
-  .left {
+.left {
     overflow: visible;
     max-height: none;
     padding: 8px;
     width: 100%;
     margin-bottom: 20px;
+    min-height: 80vh;
   }
-
   /* Right column - contact form below */
   .right {
     order: 2;
@@ -934,6 +934,7 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
     width: 100%;
   }
 }
+
 
 
 
