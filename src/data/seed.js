@@ -84,7 +84,7 @@ CSS`,
     { src: '/inv4.png', alt: 'Diagram', caption: 'Dashboard' },
    { src: '/inv5.png', alt: 'Overview', caption: 'Dashboard' }
   ],
-  github: 'https://github.com/yourusername/new-project-repo'
+  github: 'https://github.com/mayowa-id/inventory-management-system'
 }
 
     ,
@@ -127,6 +127,7 @@ CSS`,
 // ]
 
 // <GalleryImageGroup images={imgs} thumbClassName="frame-image" />
+
 
 
 
