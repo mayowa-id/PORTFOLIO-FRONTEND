@@ -24,32 +24,14 @@ export const SEED = {
   about: `I am a full-stack developer focused on building scalable, efficient, and user-driven systems. I enjoy designing clean backend architectures and pairing them with well-structured, responsive frontends. I am actively in search of the right problems to solve  problems that challenge infrastructure, experience, and performance at the same time.
 
 My skill set spans both frontend and backend development, allowing me to take products from idea to deployment:\n
-- Frontend Development\n
-React\n
-Next.js\n
-TypeScript\n
-Tailwind CSS\n
-
 - Backend Development\n
-Node.js\n
-Express\n
-GraphQL\n
-RESTful APIs\n
-Authentication & Authorization\n
-
+Node.js, Express, GraphQL, RESTful APIs, Authentication & Authorization
+- Frontend Development\n
+React, Next.js, TypeScript, Tailwind CSS
 -Databases\n
-MongoDB\n
-PostgreSQL\n
-MySQL\n
-Firebase\n
-Supabase\n
-
+MongoDB, PostgreSQL, MySQL, Firebase, Supabase
 - Languages\n
-JavaScript\n
-TypeScript\n
-Python\n
-HTML\n
-CSS`,
+JavaScript, TypeScript, Python, HTML, CSS`,
 
   // certifications: `- AWS Certified Solutions Architect (2024)\n- Oracle Certified Professional, Java SE 11 Developer`,
 
@@ -107,6 +89,7 @@ CSS`,
 // ]
 
 // <GalleryImageGroup images={imgs} thumbClassName="frame-image" />
+
 
 
 
