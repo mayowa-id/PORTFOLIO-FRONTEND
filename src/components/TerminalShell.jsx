@@ -148,10 +148,11 @@ export default function TerminalShell(){
         <ProjectSection
           title={p.title}
           description={p.description}
+           github={p.github}
+          liveDemo={p.liveDemo}
           image={p.image}
           images={p.images}
-          github={p.github}
-          liveDemo={p.liveDemo}
+
         />
       )}
     />
@@ -243,6 +244,7 @@ export default function TerminalShell(){
     </div>
   )
 }
+
 
 
 
