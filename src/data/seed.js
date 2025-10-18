@@ -35,15 +35,15 @@ My skill set spans both frontend and backend development, allowing me to take pr
 {
   title: 'Inventory Management System',
   description: `A full-stack inventory management system that automates product restocking and warehouse capacity management for businesses. The application monitors stock levels across multiple warehouses and automatically generates purchase orders when inventory falls below defined thresholds, while respecting warehouse capacity constraints.`,
+   github: 'https://github.com/mayowa-id/inventory-management-system',
+    liveDemo: "https://inventory-management-system-six-alpha.vercel.app/",
   images: [
     { src: '/inv1.png', alt: 'Overview', caption: 'Dashboard' },
      { src: '/inv2.png', alt: 'Overview', caption: 'Dashboard' },
      { src: '/inv3.png', alt: 'Overview', caption: 'Dashboard' },
     { src: '/inv4.png', alt: 'Diagram', caption: 'Dashboard' },
    { src: '/inv5.png', alt: 'Overview', caption: 'Dashboard' }
-  ],
-  github: 'https://github.com/mayowa-id/inventory-management-system',
-    liveDemo: "https://inventory-management-system-six-alpha.vercel.app/"
+  ]
 }
 
     ,
@@ -86,6 +86,7 @@ My skill set spans both frontend and backend development, allowing me to take pr
 // ]
 
 // <GalleryImageGroup images={imgs} thumbClassName="frame-image" />
+
 
 
 
