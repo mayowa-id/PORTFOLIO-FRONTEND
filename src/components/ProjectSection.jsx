@@ -38,17 +38,7 @@ export default function ProjectSection({
           )}
         </div>
       )}
-              {liveDemo && (
-          <a 
-            href={liveDemo} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="github-link"
-            style={{color: '#4ea1f3'}}
-          >
-            🌐 Live Demo
-          </a>
-        )}
+             
       {github && (
         <div style={{ marginTop: 12 }}>
           <a className="github-link" href={github} target="_blank" rel="noopener noreferrer">
@@ -59,4 +49,5 @@ export default function ProjectSection({
     </div>
   )
 }
+
 
