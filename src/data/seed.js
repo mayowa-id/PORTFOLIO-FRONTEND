@@ -46,7 +46,8 @@ JavaScript, TypeScript, Python, HTML, CSS`,
     { src: '/inv4.png', alt: 'Diagram', caption: 'Dashboard' },
    { src: '/inv5.png', alt: 'Overview', caption: 'Dashboard' }
   ],
-  github: 'https://github.com/mayowa-id/inventory-management-system'
+  github: 'https://github.com/mayowa-id/inventory-management-system',
+    liveDemo: "https://inventory-management-system-six-alpha.vercel.app/"
 }
 
     ,
@@ -89,6 +90,7 @@ JavaScript, TypeScript, Python, HTML, CSS`,
 // ]
 
 // <GalleryImageGroup images={imgs} thumbClassName="frame-image" />
+
 
 
 
