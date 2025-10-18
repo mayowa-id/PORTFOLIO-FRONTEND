@@ -193,7 +193,7 @@ export default function TerminalShell(){
   )
 )}
 
-          {/* Certifications */}
+          /* {/* Certifications */}
           {section === 'certifications' && (
             // if certifications is an array of objects show list, else a simple article
             Array.isArray(content.certifications) ? (
@@ -206,7 +206,7 @@ export default function TerminalShell(){
             ) : (
               <ArticleView title="Certifications" body={content.certifications || ''} />
             )
-          )}
+          )} */
 
           {/* Contacts */}
           {section === 'contacts' && (
@@ -242,6 +242,7 @@ export default function TerminalShell(){
     </div>
   )
 }
+
 
 
 
