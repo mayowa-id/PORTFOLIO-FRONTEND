@@ -151,6 +151,7 @@ export default function TerminalShell(){
           image={p.image}
           images={p.images}
           github={p.github}
+          liveDemo={p.liveDemo}
         />
       )}
     />
@@ -242,6 +243,7 @@ export default function TerminalShell(){
     </div>
   )
 }
+
 
 
 
