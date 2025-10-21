@@ -934,6 +934,104 @@ code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:4px;color:v
     width: 100%;
   }
 }
+/* =============================
+   Project link buttons (3 styles)
+   ============================= */
+
+/* container */
+.proj-links{
+  margin-top: 12px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* base button */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14px;
+  line-height:1;
+  text-decoration: none;
+  cursor:pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  min-height:44px;             /* comfortable hit-target */
+  min-width:130px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+/* icon inside button */
+.btn-ico{font-size:16px; display:inline-block}
+
+/* outline (subtle) */
+.btn-outline{
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid rgba(255,255,255,0.10);
+  backdrop-filter: none;
+}
+.btn-outline:hover{
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.02);
+}
+
+/* solid (accent filled) */
+.btn-solid{
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  color: var(--accent);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.btn-solid:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+}
+
+/* glassy variant (frosted / soft) */
+.btn-glass{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color: var(--accent);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px) saturate(120%);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
+.btn-glass:hover{
+  transform: translateY(-4px);
+  filter: brightness(1.06);
+}
+
+/* variants for quick custom colouring */
+.btn-live { border-color: rgba(78,161,243,0.18); }
+.btn-github { border-color: rgba(140,140,160,0.14); }
+
+/* small-screen adjustments */
+@media (max-width: 720px){
+  .proj-links { justify-content: stretch; gap:10px; }
+  .btn { flex: 1 1 auto; min-width: 0; padding:12px 14px; font-size:15px; }
+  .btn-ico { font-size:18px }
+}
+
+/* Accessibility: focus visible */
+.btn:focus{
+  outline: 3px solid rgba(155,220,255,0.14);
+  outline-offset: 3px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* optional: smaller compact variant */
+.btn.compact { padding:8px 12px; min-height:36px; font-size:13px }
+
+/* tweak to keep spacing with frame-image below */
+.frame-image-wrap { margin-top: 14px; }
+
+
 
 
 
