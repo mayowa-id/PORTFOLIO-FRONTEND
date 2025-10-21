@@ -32,6 +32,17 @@ My skill set spans both frontend and backend development, allowing me to take pr
   // certifications: `- AWS Certified Solutions Architect (2024)\n- Oracle Certified Professional, Java SE 11 Developer`,
 
   projects: [
+    {
+  title: 'The Office - Dunder Mifflin Paper Co. ',
+  description: `A landing page dedicated to my favorite sitcom`,
+   github: 'https://github.com/mayowa-id/dunder-mifflin-landing-page',
+    liveDemo: "https://dunder-mifflin-landing-page.vercel.app/",
+  images: [
+    { src: '/dmf1.png', alt: 'Overview', caption: 'Dashboard' },
+     { src: '/dmf2.png', alt: 'Overview', caption: 'Dashboard' },
+     { src: '/dmf3.png', alt: 'Overview', caption: 'Dashboard' }
+  ]
+},
 {
   title: 'Inventory Management System',
   description: `A full-stack inventory management system that automates product restocking and warehouse capacity management for businesses. The application monitors stock levels across multiple warehouses and automatically generates purchase orders when inventory falls below defined thresholds, while respecting warehouse capacity constraints.`,
@@ -45,7 +56,6 @@ My skill set spans both frontend and backend development, allowing me to take pr
    { src: '/inv5.png', alt: 'Overview', caption: 'Dashboard' }
   ]
 }
-
     ,
     {
       title: 'Auth Service',
@@ -86,6 +96,7 @@ My skill set spans both frontend and backend development, allowing me to take pr
 // ]
 
 // <GalleryImageGroup images={imgs} thumbClassName="frame-image" />
+
 
 
 
