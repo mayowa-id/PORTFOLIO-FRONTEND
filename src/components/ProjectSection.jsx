@@ -38,32 +38,59 @@ export default function ProjectSection({
       )}
       
       {/* Links section */}
-      {(liveDemo || github) && (
-        <div style={{ marginTop: 12, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-          {liveDemo && (
-            <a 
-              className="github-link" 
-              href={liveDemo} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ color: '#4ea1f3' }}
-            >
-              🌐 Live Demo ↗
-            </a>
-          )}
-          {github && (
-            <a 
-              className="github-link" 
-              href={github} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ color: '#4ea1f3' }}
-            >
-              → GitHub ↗
-            </a>
-          )}
-        </div>
-      )}
-    </div>
-  )
-}
+{/* Links section */}
+{(liveDemo || github) && (
+  <div 
+    style={{ 
+      marginTop: 16, 
+      display: 'flex', 
+      gap: 16, 
+      flexWrap: 'wrap' 
+    }}
+  >
+    {liveDemo && (
+      <a
+        href={liveDemo}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          padding: '10px 16px',
+          borderRadius: '8px',
+          textDecoration: 'none',
+          border: '1px solid #4ea1f3',
+          fontWeight: 500,
+          fontSize: '14px',
+          display: 'inline-block',
+          transition: 'background 0.25s',
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = '#4ea1f322'}
+        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+      >
+        🌐 Live Demo
+      </a>
+    )}
+    {github && (
+      <a
+        href={github}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          padding: '10px 16px',
+          borderRadius: '8px',
+          textDecoration: 'none',
+          border: '1px solid #4ea1f3',
+          fontWeight: 500,
+          fontSize: '14px',
+          display: 'inline-block',
+          transition: 'background 0.25s',
+        }}
+        onMouseEnter={e => e.currentTarget.style.background = '#4ea1f322'}
+        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+      >
+        → GitHub
+      </a>
+    )}
+  </div>
+)}
+
+
